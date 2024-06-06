@@ -1,29 +1,108 @@
-@model List<TodoItem>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Data Scientist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background: #6c5ce7;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            color: #6c5ce7;
+        }
+        .skills, .projects {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .skill, .project {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px;
+            flex: 1 1 45%;
+        }
+        footer {
+            background: #6c5ce7;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Your Name</h1>
+        <p>Data Scientist</p>
+    </header>
 
-<h2>To-Do List</h2>
+    <div class="container">
+        <div class="section about">
+            <h2>About Me</h2>
+            <p>Welcome! I'm Your Name, a passionate data scientist with a keen interest in leveraging data to drive insights and decision-making. With a strong background in statistics, machine learning, and data visualization, I strive to transform complex data into actionable strategies.</p>
+        </div>
 
-<form asp-action="Add">
-    <input type="text" name="Task" placeholder="Add new task" required />
-    <button type="submit">Add</button>
-</form>
+        <div class="section skills">
+            <h2>Skills</h2>
+            <div class="skill">
+                <h3>Programming Languages</h3>
+                <p>Python, R, SQL, JavaScript</p>
+            </div>
+            <div class="skill">
+                <h3>Data Analysis</h3>
+                <p>Pandas, NumPy, Scikit-learn</p>
+            </div>
+            <div class="skill">
+                <h3>Machine Learning</h3>
+                <p>TensorFlow, Keras, PyTorch</p>
+            </div>
+            <div class="skill">
+                <h3>Data Visualization</h3>
+                <p>Matplotlib, Seaborn, Plotly, D3.js</p>
+            </div>
+        </div>
 
-<ul>
-    @foreach (var item in Model)
-    {
-        <li>
-            @item.Task
-            @if (item.IsCompleted)
-            {
-                <span>(Completed)</span>
-            }
-            <form asp-action="Complete" method="post" style="display:inline;">
-                <input type="hidden" name="id" value="@item.Id" />
-                <button type="submit">Complete</button>
-            </form>
-            <form asp-action="Delete" method="post" style="display:inline;">
-                <input type="hidden" name="id" value="@item.Id" />
-                <button type="submit">Delete</button>
-            </form>
-        </li>
-    }
-</ul>
+        <div class="section projects">
+            <h2>Projects</h2>
+            <div class="project">
+                <h3>Project One</h3>
+                <p>Description of your first project. Highlight the problem, your approach, and the results.</p>
+            </div>
+            <div class="project">
+                <h3>Project Two</h3>
+                <p>Description of your second project. Highlight the problem, your approach, and the results.</p>
+            </div>
+        </div>
+
+        <div class="section blog">
+            <h2>Blog</h2>
+            <p>Stay tuned for upcoming blog posts!</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
