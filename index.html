@@ -1,12 +1,29 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مشروعك</title>
-</head>
-<body>
-    <h1>مرحبًا بك في مشروعي الخاص بعلم البيانات</h1>
-    <p>هذه صفحة ويب بسيطة تم نشرها باستخدام GitHub Pages.</p>
-</body>
-</html>
+@model List<TodoItem>
+
+<h2>To-Do List</h2>
+
+<form asp-action="Add">
+    <input type="text" name="Task" placeholder="Add new task" required />
+    <button type="submit">Add</button>
+</form>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            @item.Task
+            @if (item.IsCompleted)
+            {
+                <span>(Completed)</span>
+            }
+            <form asp-action="Complete" method="post" style="display:inline;">
+                <input type="hidden" name="id" value="@item.Id" />
+                <button type="submit">Complete</button>
+            </form>
+            <form asp-action="Delete" method="post" style="display:inline;">
+                <input type="hidden" name="id" value="@item.Id" />
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    }
+</ul>
